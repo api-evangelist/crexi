@@ -1,0 +1,63 @@
+generated: '2026-08-01'
+method: searched
+sources:
+- https://status.crexi.com/
+- https://exchange.crexi.com/swagger/docs/v1
+- https://learn.crexi.com/listing-api-overview-crexi-help-center
+versioning:
+  scheme: uri-path
+  current: v1
+  evidence: The Exchange API gateway serves its specification at /swagger/docs/v1,
+    and the platform API host serves Swashbuckle at /swagger/v1/swagger.json — both
+    indicate a single published v1 document set.
+  docs: null
+  note: CREXi publishes no versioning policy page.
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  note: No deprecation or sunset policy is published on any publicly reachable CREXi
+    surface, and no specification could be retrieved to check for deprecated operations
+    or RFC 8594 Sunset/Deprecation header support.
+sla:
+  url: null
+  uptime_target: null
+  note: No public SLA. The status page reports observed uptime but states no commitment.
+status_page: https://status.crexi.com/
+status_page_platform: Atlassian Statuspage
+status_page_components:
+- Sales Marketplace
+- Lease Marketplace
+- Auctions
+- Broker Pro
+- Intelligence
+status_page_observed:
+  checked: '2026-08-01'
+  overall: All Systems Operational
+  uptime_90d: 100% across all five components
+  subscriptions: true
+changelog:
+  url: null
+  note: 'No dated developer changelog or release-notes feed was found. Product changes
+    are announced ad hoc on the marketing blog (https://www.crexi.com/blog/) and in
+    the help centre; the last page explicitly framed as a product release was "What''s
+    New: Crexi Website Updates for October 2020". No `ChangeLog` pointer is emitted.'
+deprecated_operations: []
+onboarding_lifecycle:
+  note: The Listing API documents a staged partner lifecycle rather than self-serve
+    signup.
+  stages:
+  - Contact integrations@crexi.com
+  - Data and legal review
+  - Execution of a Listing API agreement
+  - Data feed connection (RESO / RETS / WebAPI / XML)
+  - API token issuance
+  - Staging-environment testing
+  - Go-live, with optional member webinars
+  source: https://learn.crexi.com/listing-api-overview-crexi-help-center
+x-evidence:
+  fetched: '2026-08-01'
+  urls:
+  - url: https://status.crexi.com/
+    http_status: 200
+  - url: https://exchange.crexi.com/swagger/docs/v1
+    http_status: 302

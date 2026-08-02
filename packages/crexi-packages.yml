@@ -1,0 +1,165 @@
+generated: '2026-08-01'
+method: searched
+sources:
+- https://registry.npmjs.org/-/v1/search?text=crexi
+- https://github.com/crexi-dev
+- https://pypi.org/
+summary:
+  first_party_api_sdks: 0
+  first_party_packages: 15
+  note: 'CREXi publishes no client SDK for any of its APIs in any language. The @crexi-dev
+    npm scope is real and first-party, but every package in it is internal Angular
+    front-end tooling — mostly forks of community Angular libraries used to build crexi.com
+    — not a client library for the Crexi Exchange, Platform or Listing API. Because
+    of this, NO `SDKs` pointer is wired into apis.yml: emitting one would credit CREXi
+    with an SDK surface it does not have.'
+registries_checked:
+- registry: npm
+  result: '@crexi-dev scope present (15 packages, internal Angular tooling); no API
+    client library'
+- registry: PyPI
+  result: no crexi / crexi-api / pycrexi package (404)
+- registry: Maven Central
+  result: no first-party CREXi artifact found
+- registry: NuGet
+  result: no first-party CREXi package found
+- registry: pkg.go.dev
+  result: no first-party CREXi module found
+- registry: RubyGems
+  result: no first-party CREXi gem found
+- registry: Packagist
+  result: no first-party CREXi package found
+- registry: crates.io
+  result: no first-party CREXi crate found
+packages:
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/schematics'
+  url: https://www.npmjs.com/package/@crexi-dev/schematics
+  install: npm install @crexi-dev/schematics
+  official: true
+  kind: internal-tooling
+  description: Schematics specific to Crexi
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/lint'
+  url: https://www.npmjs.com/package/@crexi-dev/lint
+  install: npm install @crexi-dev/lint
+  official: true
+  kind: internal-tooling
+  description: ts lint rules for crexi
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/core'
+  url: https://www.npmjs.com/package/@crexi-dev/core
+  install: npm install @crexi-dev/core
+  official: true
+  kind: internal-tooling
+  description: Angular components for Google Maps
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/ng-gmaps'
+  url: https://www.npmjs.com/package/@crexi-dev/ng-gmaps
+  install: npm install @crexi-dev/ng-gmaps
+  official: true
+  kind: internal-tooling
+  description: Angular components for Google Maps
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/ngx-slider'
+  url: https://www.npmjs.com/package/@crexi-dev/ngx-slider
+  install: npm install @crexi-dev/ngx-slider
+  official: true
+  kind: internal-tooling
+  description: A customizable slider component for Angular >= 9
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/ui-carousel'
+  url: https://www.npmjs.com/package/@crexi-dev/ui-carousel
+  install: npm install @crexi-dev/ui-carousel
+  official: true
+  kind: internal-tooling
+  description: Carousel component for Angular 9+
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/ng-packagr'
+  url: https://www.npmjs.com/package/@crexi-dev/ng-packagr
+  install: npm install @crexi-dev/ng-packagr
+  official: true
+  kind: internal-tooling
+  description: Compile and package a TypeScript library to Angular Package Format
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/build-ng-packagr'
+  url: https://www.npmjs.com/package/@crexi-dev/build-ng-packagr
+  install: npm install @crexi-dev/build-ng-packagr
+  official: true
+  kind: internal-tooling
+  description: Angular Build Architect for ng-packagr
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/ngx-cookie'
+  url: https://www.npmjs.com/package/@crexi-dev/ngx-cookie
+  install: npm install @crexi-dev/ngx-cookie
+  official: true
+  kind: internal-tooling
+  description: Implementation of the Angular 1.x $cookies service for Angular
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/ng-intercom'
+  url: https://www.npmjs.com/package/@crexi-dev/ng-intercom
+  install: npm install @crexi-dev/ng-intercom
+  official: true
+  kind: internal-tooling
+  description: Angular 6+ wrapper for Intercom.com
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/js-marker-clusterer'
+  url: https://www.npmjs.com/package/@crexi-dev/js-marker-clusterer
+  install: npm install @crexi-dev/js-marker-clusterer
+  official: true
+  kind: internal-tooling
+  description: Angular Google Maps extension for js-marker-clusterer
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/snazzy-info-window'
+  url: https://www.npmjs.com/package/@crexi-dev/snazzy-info-window
+  install: npm install @crexi-dev/snazzy-info-window
+  official: true
+  kind: internal-tooling
+  description: Angular Google Maps package for Snazzy Info Window support
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/sharebuttons-core'
+  url: https://www.npmjs.com/package/@crexi-dev/sharebuttons-core
+  install: npm install @crexi-dev/sharebuttons-core
+  official: true
+  kind: internal-tooling
+  description: Share buttons components for Angular and Ionic
+- language: typescript
+  registry: npm
+  name: '@crexi-dev/demo'
+  url: https://www.npmjs.com/package/@crexi-dev/demo
+  install: npm install @crexi-dev/demo
+  official: true
+  kind: internal-tooling
+  description: Angular Share Buttons demo package
+third_party:
+- name: crexi-scraper
+  registry: npm
+  url: https://www.npmjs.com/package/crexi-scraper
+  official: false
+  note: Third-party scraper client, not affiliated with CREXi. Recorded for completeness
+    only.
+- name: Apify CREXi actors / MCP servers
+  official: false
+  note: Multiple third-party Apify actors scrape crexi.com and expose MCP wrappers.
+    None are first-party and none are catalogued as CREXi artifacts.
+github:
+  org: https://github.com/crexi-dev
+  public_repos: 14
+  note: The public GitHub org contains Angular library forks, a design-system prototype
+    and hiring exercise repos (rate-limiter, devops-task, sdet-assignment, angular-task).
+    No API client, no .proto files, no published OpenAPI.
+x-evidence:
+  fetched: '2026-08-01'

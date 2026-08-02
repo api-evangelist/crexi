@@ -1,0 +1,73 @@
+generated: '2026-08-01'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + discovery hosts
+tooling: 0-working/probe-domain-security.py, plus a manual per-host HSTS re-probe —
+  the script's default user agent is refused by the Cloudflare and AWS ELB edges in
+  front of www.crexi.com and api-docs.crexi.com, which suppressed their response headers
+  and left hsts null
+hosts:
+- host: www.crexi.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  6 18:50:38 2026 GMT
+  hsts: false
+  note: Every request is answered with an HTTP 403 Cloudflare bot-management interstitial
+    unless the client solves the challenge; no Strict-Transport-Security header is
+    returned on that response.
+- host: api.crexi.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  6 18:50:38 2026 GMT
+  hsts: false
+  note: 301 to index.html then 200; no Strict-Transport-Security header on either response.
+    /health also returns 200 without HSTS.
+- host: exchange.crexi.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  6 18:50:38 2026 GMT
+  hsts: false
+- host: api-docs.crexi.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 29 12:46:21 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  note: Theneo-hosted documentation portal behind an AWS ELB.
+- host: learn.crexi.com
+  https: true
+  hsts: true
+  hsts_max_age: 31536000
+  note: HubSpot-hosted help centre.
+- host: status.crexi.com
+  https: true
+  hsts: true
+  hsts_max_age: 259200
+  note: Atlassian Statuspage.
+domains:
+- domain: crexi.com
+  dnssec: false
+  caa:
+  - 0 issuewild "letsencrypt.org"
+  - 0 issuewild "pki.goog; cansignhttpexchanges=yes"
+  - 0 issuewild "ssl.com"
+  - 0 issue "amazon.com"
+  - 0 issue "comodoca.com"
+  - 0 issue "digicert.com; cansignhttpexchanges=yes"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+summary:
+  https_everywhere: true
+  tls13_everywhere: true
+  hsts_on_primary_hosts: false
+  hsts_note: Neither the marketplace host (www.crexi.com) nor either API host (api.crexi.com,
+    exchange.crexi.com) sets Strict-Transport-Security. HSTS is present only on the
+    three third-party-hosted properties — the Theneo docs portal, the HubSpot help
+    centre and the Atlassian status page.
+  dnssec: false
+  caa_present: true
+  spf: true
+  dmarc_enforced: true
+x-evidence:
+  fetched: '2026-08-01'

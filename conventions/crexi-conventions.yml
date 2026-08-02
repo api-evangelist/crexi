@@ -1,0 +1,99 @@
+generated: '2026-08-01'
+method: searched
+sources:
+- https://exchange.crexi.com/Content/auth.js
+- https://api.crexi.com/.well-known/openid-configuration
+- https://learn.crexi.com/listing-api-overview-crexi-help-center
+- https://learn.crexi.com/listing-partnerships-crexi-help-center
+scope_note: 'CREXi publishes no retrievable OpenAPI and no public developer conventions
+  guide. Everything below is either observed on a live host or quoted from the help
+  centre; every convention that could not be established is recorded as `unknown` rather
+  than guessed.'
+authentication:
+  exchange_api:
+    style: api-key
+    transport: header
+    parameter: x-api-key
+    source: https://exchange.crexi.com/Content/auth.js
+  platform_api:
+    style: oauth2-bearer
+    token_endpoint: https://api.crexi.com/token
+    grant_types:
+    - password
+    - refresh_token
+    - switch_user
+    - single_use_token_exchange
+    token_format: JWT signed RS256 (jwks at https://api.crexi.com/.well-known/jwks)
+    source: well-known/crexi-openid-configuration.json
+  listing_api:
+    style: partner-issued token
+    transport: unknown
+    source: https://learn.crexi.com/listing-api-overview-crexi-help-center
+  see_also: authentication/crexi-authentication.yml
+idempotency:
+  supported: unknown
+  header: null
+  note: 'No idempotency key header, scope or retention policy is documented anywhere
+    on CREXi''s public surface, and no specification could be retrieved to look for
+    an Idempotency-Key parameter. No `Idempotency` pointer is emitted — the pipeline
+    only wires that type when idempotency support is genuinely evidenced.'
+pagination:
+  style: unknown
+  params: []
+  response_fields: []
+  note: Not documented publicly; would require the gated Exchange API specification.
+versioning:
+  style: uri-path
+  current: v1
+  evidence: /swagger/docs/v1 and /swagger/v1/swagger.json
+  see_also: lifecycle/crexi-lifecycle.yml
+error_envelope:
+  shape: unknown
+  problem_json: unknown
+  observed:
+  - endpoint: https://events.crexi.com/
+    status: 403
+    body: '{"message":"Missing Authentication Token"}'
+    note: 'An AWS API Gateway default error envelope with a single "message" field,
+      observed on the events host — indicative of the edge, not necessarily of the
+      product APIs.'
+rate_limiting:
+  signalled: unknown
+  headers: []
+  note: No rate-limit documentation or observable rate-limit headers on any anonymous
+    endpoint.
+request_tracing:
+  request_id_header: unknown
+data_conventions:
+  vocabulary: RESO Data Dictionary
+  vocabulary_note: CREXi states it is 100% compliant with the RESO Data Dictionary
+    for listing data, which is the effective field vocabulary for anything flowing
+    through the Listing API.
+  accepted_feed_formats:
+  - RESO
+  - RETS
+  - WebAPI
+  - XML
+  sync_direction: one-way (partner -> CREXi)
+  sync_cadence: daily
+  source: https://learn.crexi.com/listing-partnerships-crexi-help-center
+test_environment:
+  published: true
+  self_serve: false
+  description: The Listing API onboarding sequence includes staging-environment testing
+    before go-live, but the staging environment is provisioned per partner after a
+    data and legal review — there is no self-serve sandbox, test key prefix, or published
+    test fixture set. No `Sandbox` pointer is emitted for this reason.
+  source: https://learn.crexi.com/listing-api-overview-crexi-help-center
+transport_security:
+  https_only: true
+  hsts: see security/crexi-domain-security.yml
+  edge: Cloudflare in front of www/api/exchange; AWS API Gateway behind events.crexi.com
+cross_links:
+  authentication: authentication/crexi-authentication.yml
+  scopes: scopes/crexi-scopes.yml
+  lifecycle: lifecycle/crexi-lifecycle.yml
+  conformance: conformance/crexi-conformance.yml
+  well_known: well-known/crexi-well-known.yml
+x-evidence:
+  fetched: '2026-08-01'

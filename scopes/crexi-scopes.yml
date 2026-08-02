@@ -1,0 +1,50 @@
+generated: '2026-08-01'
+method: probed
+source: https://api.crexi.com/.well-known/oauth-authorization-server
+note: 'CREXi publishes no OpenAPI with oauth2 securitySchemes and no public scopes/permissions
+  reference page. The scope list below is exactly what the authorization server''s
+  own discovery document advertises anonymously — nothing has been added or inferred.'
+schemes:
+- name: CrexiOAuth2
+  source: well-known/crexi-oauth-authorization-server.json
+  issuer: https://api.crexi.com/
+  flows:
+  - flow: password
+    tokenUrl: https://api.crexi.com/token
+  - flow: refresh_token
+    tokenUrl: https://api.crexi.com/token
+  - flow: switch_user
+    tokenUrl: https://api.crexi.com/token
+    note: Non-standard grant type advertised by CREXi (user impersonation / account
+      switching).
+  - flow: single_use_token_exchange
+    tokenUrl: https://api.crexi.com/token
+    note: Non-standard grant type advertised by CREXi.
+scopes:
+- scope: openid
+  description: Standard OpenID Connect scope requesting an ID token for the authenticated
+    subject.
+  flows:
+  - password
+  - refresh_token
+  sources:
+  - well-known/crexi-oauth-authorization-server.json
+- scope: offline_access
+  description: Requests a refresh token so the client can obtain new access tokens
+    without the resource owner present.
+  flows:
+  - password
+  - refresh_token
+  sources:
+  - well-known/crexi-oauth-authorization-server.json
+coverage:
+  scopes_published: 2
+  resource_scopes_published: 0
+  note: No resource- or product-level scopes (listings, search, intelligence, auctions)
+    are advertised publicly. Any finer-grained authorization model would only be visible
+    behind the gated Exchange API specification.
+x-evidence:
+  fetched: '2026-08-01'
+  url: https://api.crexi.com/.well-known/oauth-authorization-server
+  http_status: 200
+  content_type: application/json;charset=UTF-8

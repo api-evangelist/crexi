@@ -1,0 +1,57 @@
+# CREXi
+
+> CREXi (Commercial Real Estate Exchange, Inc.) is a commercial real estate marketplace and data platform founded in 2015 and headquartered in Los Angeles. It operates a sales marketplace, a lease marketplace, an auction platform, Broker PRO tools, and the Crexi Intelligence property-records product. CREXi's API surface is partner-gated rather than self-serve: the Listing API is a one-way syndication feed for MLSs, Realtor Boards, brokerages and data providers, and the Exchange API is documented in a password-protected portal.
+
+<!--
+generated: 2026-08-01
+method: generated
+source: apis.yml + repo artifacts (no /llms.txt is published on any CREXi host;
+        learn.crexi.com/llms.txt returns 404 and www.crexi.com is behind a
+        Cloudflare bot challenge that returns 403 for every path)
+-->
+
+## APIs
+
+- [Crexi Exchange API](https://api-docs.crexi.com/): CREXi's partner-facing REST API. Documentation is published with Theneo at api-docs.crexi.com and is password protected. The gateway at exchange.crexi.com serves a Swagger UI whose OpenAPI document sits at /swagger/docs/v1 behind an API-key login. Authentication is an apiKey named `x-api-key` in the request header.
+- [Crexi Platform API](https://api.crexi.com): The platform API behind the CREXi web and mobile apps. Publishes anonymous OpenID Connect and OAuth 2.0 authorization-server discovery, a JWKS, a `/token` endpoint and an ASP.NET Core `/health` endpoint. Its Swagger UI at `/swagger` is protected by HTTP Basic authentication.
+- [Crexi Listing API](https://learn.crexi.com/listing-api-overview-crexi-help-center): A one-way data sync that lets qualifying organizations push listings onto Crexi.com. Accepts RESO, RETS, WebAPI and XML feeds, synced daily. CREXi states 100% compliance with the RESO Data Dictionary and support for 100+ partner organizations. Access is arranged through integrations@crexi.com.
+
+## Specs and discovery
+
+- [OpenID Connect discovery](https://api.crexi.com/.well-known/openid-configuration): issuer `https://api.crexi.com/`, token endpoint `/token`, RS256 ID tokens, scopes `openid` and `offline_access`.
+- [OAuth 2.0 authorization server metadata](https://api.crexi.com/.well-known/oauth-authorization-server): RFC 8414; grants `password`, `refresh_token`, `switch_user`, `single_use_token_exchange`.
+- [JWKS](https://api.crexi.com/.well-known/jwks): RSA RS256 signing keys.
+- No OpenAPI document is publicly retrievable. No AsyncAPI, GraphQL, gRPC, agent card, security.txt or api-catalog document was found on any CREXi host.
+
+## Docs
+
+- [Crexi Learn Center](https://learn.crexi.com/): help centre covering Crexi Basics, listings, searches, Intelligence, PRO, Listing Partnerships, Auctions, CRM Integrations, the mobile app, billing and DMCA.
+- [Getting started — Crexi Basics](https://learn.crexi.com/crexi-basics)
+- [Listing API Overview](https://learn.crexi.com/listing-api-overview-crexi-help-center)
+- [Listing Partnerships](https://learn.crexi.com/listing-partnerships-crexi-help-center)
+- [Crexi CRM Integrations](https://learn.crexi.com/crexi-crm-integrations)
+
+## Company
+
+- [Website](https://www.crexi.com/)
+- [Blog](https://www.crexi.com/blog/)
+- [Research — CRE market reports](https://research.crexi.com/)
+- [Podcast](https://podcast.crexi.com/)
+- [Broker plans / pricing](https://www.crexi.com/broker-plans)
+- [Sign up](https://www.crexi.com/signup)
+- [Log in](https://admin.crexi.com/account/login)
+- [Status page](https://status.crexi.com/) — Atlassian Statuspage covering Sales Marketplace, Lease Marketplace, Auctions, Broker Pro and Intelligence.
+- [GitHub organization](https://github.com/crexi-dev)
+- [Master Service Agreement](https://www.crexi.com/msa/)
+- [Privacy Policy](https://www.crexi.com/privacy)
+
+## Contact
+
+- Partner and API integrations: integrations@crexi.com
+- Support: support@crexi.com, 888.273.0423
+
+## Notes for agents
+
+- There is no self-serve developer signup, no public API key issuance, no SDK in any language, no CLI, no Postman collection, no first-party MCP server, and no A2A agent card.
+- Programmatic access requires a commercial agreement: contact integrations@crexi.com for the Listing API, or CREXi directly for Exchange API credentials.
+- Third-party "Crexi API" offerings on Apify, ScrapingBee and ProxyEmpire are scrapers, not CREXi products, and are not endorsed by CREXi.

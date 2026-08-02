@@ -1,23 +1,176 @@
 aid: crexi
 name: CREXi
-description: 'CREXi is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'CREXi (Commercial Real Estate Exchange, Inc.) is a Los Angeles-based
+  commercial real estate marketplace and data platform founded in 2015, operating a
+  sales marketplace, lease marketplace, auction platform, Broker PRO tools and the
+  Crexi Intelligence property-records product. Its API surface is partner-gated rather
+  than self-serve: the Crexi Listing API is a one-way syndication feed that lets MLSs,
+  Realtor Boards, brokerages and data providers push listings into the marketplace
+  (RESO, RETS, WebAPI and XML feeds, synced daily, with Crexi stating 100% compliance
+  with the RESO Data Dictionary and 100+ partner organizations), while the Crexi Exchange
+  API is documented in a password-protected Theneo portal at api-docs.crexi.com and
+  fronted by an API-key-gated Swagger UI at exchange.crexi.com. The platform API host
+  api.crexi.com publishes anonymous OpenID Connect and OAuth 2.0 authorization-server
+  discovery documents.'
+image: https://learn.crexi.com/hubfs/crexi%20logo%20navy%20text.svg
 url: https://raw.githubusercontent.com/api-evangelist/crexi/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
 specificationVersion: '0.20'
 created: '2026-08-01'
 modified: '2026-08-01'
 tags:
+- Real Estate
+- Commercial Real Estate
+- Marketplace
+- Property Data
+- Listings
+- Auctions
+- Market Intelligence
+- Data Syndication
+- RESO
 - Company
-apis: []
+apis:
+- aid: crexi-exchange-api
+  name: Crexi Exchange API
+  description: 'The Crexi Exchange API is Crexi''s partner-facing REST API, documented
+    in a Theneo-published portal at api-docs.crexi.com (password protected) and fronted
+    by a Swagger UI gateway at exchange.crexi.com. The OpenAPI document is served at
+    /swagger/docs/v1 behind an API-key login gate; the published login script declares
+    the scheme as an apiKey named x-api-key passed in the request header.'
+  humanURL: https://api-docs.crexi.com/
+  baseURL: https://exchange.crexi.com
+  tags:
+  - Commercial Real Estate
+  - Listings
+  - Partner API
+  properties:
+  - type: APIReference
+    url: https://api-docs.crexi.com/
+  - type: Authentication
+    url: authentication/crexi-authentication.yml
+  - type: Conventions
+    url: conventions/crexi-conventions.yml
+  x-contract-discovery:
+    openapi_url: https://exchange.crexi.com/swagger/docs/v1
+    http_status: 302
+    gated: true
+    gate: API-key login (redirects to /static/auth.html)
+    note: Real OpenAPI/Swagger surface confirmed present but not publicly retrievable;
+      nothing was saved to openapi/ because no spec body could be fetched.
+- aid: crexi-platform-api
+  name: Crexi Platform API
+  description: 'The api.crexi.com host is the platform API backing the Crexi web and
+    mobile applications. It anonymously publishes OpenID Connect discovery (/.well-known/openid-configuration)
+    and OAuth 2.0 authorization server metadata (RFC 8414), exposes a JWKS document
+    and a /token endpoint, and returns an ASP.NET Core health-check payload at /health.
+    A Swashbuckle Swagger UI is present at /swagger but is protected by HTTP Basic
+    authentication.'
+  humanURL: https://api-docs.crexi.com/
+  baseURL: https://api.crexi.com
+  tags:
+  - Platform API
+  - OpenID Connect
+  - OAuth 2.0
+  properties:
+  - type: Authentication
+    url: authentication/crexi-authentication.yml
+  - type: OAuthScopes
+    url: scopes/crexi-scopes.yml
+  - type: WellKnown
+    url: well-known/crexi-well-known.yml
+  - type: OpenIDConnect
+    url: well-known/crexi-openid-configuration.json
+  x-contract-discovery:
+    openapi_url: https://api.crexi.com/swagger/v1/swagger.json
+    http_status: 401
+    gated: true
+    gate: 'WWW-Authenticate: Basic'
+- aid: crexi-listing-api
+  name: Crexi Listing API
+  description: 'The Crexi Listing API is a one-way data sync that lets qualifying organizations
+    — MLSs and Realtor Boards, large brokerages and franchise networks, and real estate
+    data providers — automatically push their listings onto Crexi.com. Crexi accepts
+    RESO, RETS, WebAPI and XML feeds, listings sync daily, and Crexi states it is 100%
+    compliant with the RESO Data Dictionary across 100+ partner organizations. Access
+    is granted through integrations@crexi.com after a data and legal review, execution
+    of a Listing API agreement, API token issuance and staging-environment testing.'
+  humanURL: https://learn.crexi.com/listing-api-overview-crexi-help-center
+  tags:
+  - Data Syndication
+  - RESO
+  - Listings
+  properties:
+  - type: Documentation
+    url: https://learn.crexi.com/listing-api-overview-crexi-help-center
+  - type: Conformance
+    url: conformance/crexi-conformance.yml
+  x-access:
+    model: partner-onboarded
+    contact: integrations@crexi.com
+    note: No public base URL is published; the endpoint and API token are provisioned
+      per partner during onboarding, so no baseURL is asserted here.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/crexi-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/crexi_stock/
+  url: https://www.crexi.com/
+- type: DeveloperPortal
+  url: https://api-docs.crexi.com/
+- type: APIReference
+  url: https://api-docs.crexi.com/
+- type: Documentation
+  url: https://learn.crexi.com/listing-api-overview-crexi-help-center
+- type: GettingStarted
+  url: https://learn.crexi.com/crexi-basics
+- type: Support
+  url: https://learn.crexi.com/
+- type: Blog
+  url: https://www.crexi.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/crexi-dev
+- type: Pricing
+  url: https://www.crexi.com/broker-plans
+- type: SignUp
+  url: https://www.crexi.com/signup
+- type: Login
+  url: https://admin.crexi.com/account/login
+- type: TermsOfService
+  url: https://www.crexi.com/msa/
+- type: PrivacyPolicy
+  url: https://www.crexi.com/privacy
+- type: StatusPage
+  url: https://status.crexi.com/
+- type: Lifecycle
+  url: lifecycle/crexi-lifecycle.yml
+- type: Authentication
+  url: authentication/crexi-authentication.yml
+- type: OAuthScopes
+  url: scopes/crexi-scopes.yml
+- type: WellKnown
+  url: well-known/crexi-well-known.yml
+- type: Conformance
+  url: conformance/crexi-conformance.yml
+- type: Conventions
+  url: conventions/crexi-conventions.yml
+- type: Packages
+  url: packages/crexi-packages.yml
+- type: LLMsTxt
+  url: llms/crexi-llms.txt
+- type: Research
+  url: https://research.crexi.com/
+- type: Podcast
+  url: https://podcast.crexi.com/
+x-enrichment:
+  date: '2026-08-01'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v1
+

@@ -1,0 +1,95 @@
+generated: '2026-08-01'
+method: probed
+source: live probe of every CREXi host found in apis.yml and via certificate transparency
+hosts:
+- host: https://api.crexi.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json;charset=UTF-8
+    file: crexi-openid-configuration.json
+    note: OpenID Connect Discovery 1.0 document; issuer https://api.crexi.com/
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json;charset=UTF-8
+    file: crexi-oauth-authorization-server.json
+    note: RFC 8414 OAuth 2.0 Authorization Server Metadata; byte-identical to the OIDC
+      discovery document
+  - path: /.well-known/jwks
+    status: 200
+    content_type: application/json
+    file: crexi-jwks.json
+    note: JSON Web Key Set referenced by jwks_uri; RSA RS256 signing keys
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://exchange.crexi.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://www.crexi.com
+  note: Every request to the marketing/marketplace host is answered by a Cloudflare
+    bot-management interstitial ("Just a moment...") with HTTP 403, including /robots.txt.
+    These results are inconclusive rather than negative — the documents may exist but
+    cannot be retrieved without solving the challenge.
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    inconclusive: true
+  - path: /security.txt
+    status: 403
+    inconclusive: true
+  - path: /.well-known/api-catalog
+    status: 403
+    inconclusive: true
+  - path: /.well-known/agent-card.json
+    status: 403
+    inconclusive: true
+  - path: /.well-known/agent.json
+    status: 403
+    inconclusive: true
+- host: https://learn.crexi.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+summary:
+  security_txt: false
+  openid_configuration: true
+  oauth_authorization_server: true
+  api_catalog: false
+  ai_plugin: false
+  agent_card: false
+x-evidence:
+  fetched: '2026-08-01'
+  hosts_probed:
+  - api.crexi.com
+  - exchange.crexi.com
+  - www.crexi.com
+  - crexi.com
+  - learn.crexi.com
+  - api-docs.crexi.com
