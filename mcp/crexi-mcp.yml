@@ -1,6 +1,7 @@
 generated: '2026-08-01'
 method: probed
-status: none-published
+status: none
+status_raw: none-published
 server: null
 tools: []
 finding: 'CREXi publishes no first-party MCP server. No hosted server, no npm/registry
