@@ -4,27 +4,28 @@ status: none
 status_raw: none-published
 server: null
 tools: []
-finding: 'CREXi publishes no first-party MCP server. No hosted server, no npm/registry
-  package, and no MCP endpoint on any reachable CREXi host. No candidate tool list
-  could be derived either, because no CREXi OpenAPI document is publicly retrievable
-  — every specification URL found is authentication-gated. No `MCPServer` pointer is
-  wired into apis.yml.'
+finding: CREXi publishes no first-party MCP server. No hosted server, no npm/registry package, and no
+  MCP endpoint on any reachable CREXi host. No candidate tool list could be derived either, because no
+  CREXi OpenAPI document is publicly retrievable — every specification URL found is authentication-gated.
+  No `MCPServer` pointer is wired into apis.yml.
 evidence:
 - kind: certificate-transparency
   value: mcp-portal-internal-dev.crexi.com
-  note: 'A certificate has been issued for an "mcp-portal-internal-dev" host under
-    crexi.com, suggesting an internal MCP portal in development. The name does not
-    resolve publicly (connection failure, no DNS answer), so nothing about its tools,
-    transport or availability can be asserted. Recorded as a lead for a future round,
-    not as a published server.'
+  note: A certificate has been issued for an "mcp-portal-internal-dev" host under crexi.com, suggesting
+    an internal MCP portal in development. The name does not resolve publicly (connection failure, no
+    DNS answer), so nothing about its tools, transport or availability can be asserted. Recorded as a
+    lead for a future round, not as a published server.
   probed: '2026-08-01'
   resolves: false
 - kind: probe
-  value: no /mcp, /sse or JSON-RPC tools/list surface found on api.crexi.com, exchange.crexi.com
-    or api-docs.crexi.com
+  value: no /mcp, /sse or JSON-RPC tools/list surface found on api.crexi.com, exchange.crexi.com or api-docs.crexi.com
 - kind: search
-  value: 'Public MCP results for "Crexi" are all third-party Apify scraper wrappers
-    (crawlerbros, memo23, shahidirfan, powerai, parseforge, ahmed_jasarevic). None
-    are first-party; none are catalogued here.'
+  value: Public MCP results for "Crexi" are all third-party Apify scraper wrappers (crawlerbros, memo23,
+    shahidirfan, powerai, parseforge, ahmed_jasarevic). None are first-party; none are catalogued here.
 x-evidence:
   fetched: '2026-08-01'
+deployment:
+  mode: none
+  verified: derived
+  checked: '2026-08-12'
+  source: catalog MCP census
