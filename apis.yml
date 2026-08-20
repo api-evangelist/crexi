@@ -22,6 +22,17 @@ specificationVersion: '0.23'
 created: '2026-08-01'
 modified: '2026-08-01'
 tags:
+- Real-Estate
+- Commercial Real Estate
+- Marketplace
+- Property Data
+- Listings
+- Auctions
+- Market Intelligence
+- Data Syndication
+- RESO
+- Company
+tags_raw:
 - Real Estate
 - Commercial Real Estate
 - Marketplace
@@ -71,6 +82,10 @@ apis:
   humanURL: https://api-docs.crexi.com/
   baseURL: https://api.crexi.com
   tags:
+  - Platform API
+  - OpenID Connect
+  - Authentication
+  tags_raw:
   - Platform API
   - OpenID Connect
   - OAuth 2.0
