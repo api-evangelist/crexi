@@ -12,6 +12,17 @@ description: 'CREXi (Commercial Real Estate Exchange, Inc.) is a Los Angeles-bas
   fronted by an API-key-gated Swagger UI at exchange.crexi.com. The platform API host
   api.crexi.com publishes anonymous OpenID Connect and OAuth 2.0 authorization-server
   discovery documents.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://learn.crexi.com/hubfs/crexi%20logo%20navy%20text.svg
 url: https://raw.githubusercontent.com/api-evangelist/crexi/refs/heads/main/apis.yml
 x-type: company
