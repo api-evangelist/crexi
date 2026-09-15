@@ -1,17 +1,14 @@
 aid: crexi
 name: CREXi
-description: 'CREXi (Commercial Real Estate Exchange, Inc.) is a Los Angeles-based
-  commercial real estate marketplace and data platform founded in 2015, operating a
-  sales marketplace, lease marketplace, auction platform, Broker PRO tools and the
-  Crexi Intelligence property-records product. Its API surface is partner-gated rather
-  than self-serve: the Crexi Listing API is a one-way syndication feed that lets MLSs,
-  Realtor Boards, brokerages and data providers push listings into the marketplace
-  (RESO, RETS, WebAPI and XML feeds, synced daily, with Crexi stating 100% compliance
-  with the RESO Data Dictionary and 100+ partner organizations), while the Crexi Exchange
-  API is documented in a password-protected Theneo portal at api-docs.crexi.com and
-  fronted by an API-key-gated Swagger UI at exchange.crexi.com. The platform API host
-  api.crexi.com publishes anonymous OpenID Connect and OAuth 2.0 authorization-server
-  discovery documents.'
+description: 'CREXi (Commercial Real Estate Exchange, Inc.) is a Los Angeles-based commercial real estate
+  marketplace and data platform founded in 2015, operating a sales marketplace, lease marketplace, auction
+  platform, Broker PRO tools and the Crexi Intelligence property-records product. Its API surface is partner-gated
+  rather than self-serve: the Crexi Listing API is a one-way syndication feed that lets MLSs, Realtor
+  Boards, brokerages and data providers push listings into the marketplace (RESO, RETS, WebAPI and XML
+  feeds, synced daily, with Crexi stating 100% compliance with the RESO Data Dictionary and 100+ partner
+  organizations), while the Crexi Exchange API is documented in a password-protected Theneo portal at
+  api-docs.crexi.com and fronted by an API-key-gated Swagger UI at exchange.crexi.com. The platform API
+  host api.crexi.com publishes anonymous OpenID Connect and OAuth 2.0 authorization-server discovery documents.'
 deliveryModel:
   model: saas
   open_source: false
@@ -69,13 +66,12 @@ tags_raw:
 - RESO
 - Company
 apis:
-- aid: crexi-exchange-api
+- aid: crexi:crexi-exchange-api
   name: Crexi Exchange API
-  description: 'The Crexi Exchange API is Crexi''s partner-facing REST API, documented
-    in a Theneo-published portal at api-docs.crexi.com (password protected) and fronted
-    by a Swagger UI gateway at exchange.crexi.com. The OpenAPI document is served at
-    /swagger/docs/v1 behind an API-key login gate; the published login script declares
-    the scheme as an apiKey named x-api-key passed in the request header.'
+  description: The Crexi Exchange API is Crexi's partner-facing REST API, documented in a Theneo-published
+    portal at api-docs.crexi.com (password protected) and fronted by a Swagger UI gateway at exchange.crexi.com.
+    The OpenAPI document is served at /swagger/docs/v1 behind an API-key login gate; the published login
+    script declares the scheme as an apiKey named x-api-key passed in the request header.
   humanURL: https://api-docs.crexi.com/
   baseURL: https://exchange.crexi.com
   tags:
@@ -94,16 +90,15 @@ apis:
     http_status: 302
     gated: true
     gate: API-key login (redirects to /static/auth.html)
-    note: Real OpenAPI/Swagger surface confirmed present but not publicly retrievable;
-      nothing was saved to openapi/ because no spec body could be fetched.
-- aid: crexi-platform-api
+    note: Real OpenAPI/Swagger surface confirmed present but not publicly retrievable; nothing was saved
+      to openapi/ because no spec body could be fetched.
+- aid: crexi:crexi-platform-api
   name: Crexi Platform API
-  description: 'The api.crexi.com host is the platform API backing the Crexi web and
-    mobile applications. It anonymously publishes OpenID Connect discovery (/.well-known/openid-configuration)
-    and OAuth 2.0 authorization server metadata (RFC 8414), exposes a JWKS document
-    and a /token endpoint, and returns an ASP.NET Core health-check payload at /health.
-    A Swashbuckle Swagger UI is present at /swagger but is protected by HTTP Basic
-    authentication.'
+  description: The api.crexi.com host is the platform API backing the Crexi web and mobile applications.
+    It anonymously publishes OpenID Connect discovery (/.well-known/openid-configuration) and OAuth 2.0
+    authorization server metadata (RFC 8414), exposes a JWKS document and a /token endpoint, and returns
+    an ASP.NET Core health-check payload at /health. A Swashbuckle Swagger UI is present at /swagger but
+    is protected by HTTP Basic authentication.
   humanURL: https://api-docs.crexi.com/
   baseURL: https://api.crexi.com
   tags:
@@ -128,15 +123,14 @@ apis:
     http_status: 401
     gated: true
     gate: 'WWW-Authenticate: Basic'
-- aid: crexi-listing-api
+- aid: crexi:crexi-listing-api
   name: Crexi Listing API
-  description: 'The Crexi Listing API is a one-way data sync that lets qualifying organizations
-    — MLSs and Realtor Boards, large brokerages and franchise networks, and real estate
-    data providers — automatically push their listings onto Crexi.com. Crexi accepts
-    RESO, RETS, WebAPI and XML feeds, listings sync daily, and Crexi states it is 100%
-    compliant with the RESO Data Dictionary across 100+ partner organizations. Access
-    is granted through integrations@crexi.com after a data and legal review, execution
-    of a Listing API agreement, API token issuance and staging-environment testing.'
+  description: The Crexi Listing API is a one-way data sync that lets qualifying organizations — MLSs
+    and Realtor Boards, large brokerages and franchise networks, and real estate data providers — automatically
+    push their listings onto Crexi.com. Crexi accepts RESO, RETS, WebAPI and XML feeds, listings sync
+    daily, and Crexi states it is 100% compliant with the RESO Data Dictionary across 100+ partner organizations.
+    Access is granted through integrations@crexi.com after a data and legal review, execution of a Listing
+    API agreement, API token issuance and staging-environment testing.
   humanURL: https://learn.crexi.com/listing-api-overview-crexi-help-center
   tags:
   - Data Syndication
@@ -150,8 +144,8 @@ apis:
   x-access:
     model: partner-onboarded
     contact: integrations@crexi.com
-    note: No public base URL is published; the endpoint and API token are provisioned
-      per partner during onboarding, so no baseURL is asserted here.
+    note: No public base URL is published; the endpoint and API token are provisioned per partner during
+      onboarding, so no baseURL is asserted here.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -215,4 +209,3 @@ x-enrichment:
   status: enriched
   artifacts_added: 13
   pass: local-v1
-
