@@ -44,7 +44,7 @@ specificationVersion: '0.23'
 created: '2026-08-01'
 modified: '2026-08-01'
 tags:
-- Real-Estate
+- Real Estate
 - Commercial Real Estate
 - Marketplace
 - Property Data
@@ -65,6 +65,7 @@ tags_raw:
 - Data Syndication
 - RESO
 - Company
+- Real-Estate
 apis:
 - aid: crexi:crexi-exchange-api
   name: Crexi Exchange API
