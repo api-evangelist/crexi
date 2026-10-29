@@ -64,5 +64,109 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-CREXi is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/crexi_stock/
+CREXi (Commercial Real Estate Exchange, Inc.) is a Los Angeles-based commercial real estate marketplace and data platform founded in 2015, operating a sales marketplace, lease marketplace, auction platform, Broker PRO tools and the Crexi Intelligence property-records product. Its API surface is partner-gated rather than self-serve: the Crexi Listing API is a one-way syndication feed that lets MLSs, Realtor Boards, brokerages and data providers push listings into the marketplace (RESO, RETS, WebAPI and XML feeds, synced daily, with Crexi stating 100% compliance with the RESO Data Dictionary and 100+ partner organizations), while the Crexi Exchange API is documented in a password-protected Theneo portal at api-docs.crexi.com and fronted by an API-key-gated Swagger UI at exchange.crexi.com. The platform API host api.crexi.com publishes anonymous OpenID Connect and OAuth 2.0 authorization-server discovery documents.
+
+**Areas:** Real Estate · Commercial Real Estate · Marketplace · Property Data · Listings · Auctions · Market Intelligence · Data Syndication · RESO · Company
+
+## CREXi on APIs.io
+
+Everything profiled for CREXi is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/crexi/](https://apis.io/providers/crexi/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Crexi Exchange API](https://apis.io/apis/crexi/crexi-exchange-api/) — The Crexi Exchange API is Crexi's partner-facing REST API, documented in a Theneo-published portal at api-docs.crexi.com (password protected) and fronted by…
+- [Crexi Platform API](https://apis.io/apis/crexi/crexi-platform-api/) — The api.crexi.com host is the platform API backing the Crexi web and mobile applications. It anonymously publishes OpenID Connect discovery…
+- [Crexi Listing API](https://apis.io/apis/crexi/crexi-listing-api/) — The Crexi Listing API is a one-way data sync that lets qualifying organizations — MLSs and Realtor Boards, large brokerages and franchise networks, and real…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [crexi-mcp.yml](https://apis.io/servers/crexi/crexi-mcp-yml/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Crexi Authentication](https://apis.io/security/crexi/crexi-authentication/)
+- [Crexi Domain Security](https://apis.io/security/crexi/crexi-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Crexi Scopes](https://apis.io/scopes/crexi/crexi-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.crexi.com/)
+- [Documentation](https://learn.crexi.com/listing-api-overview-crexi-help-center)
+- [Getting started](https://learn.crexi.com/crexi-basics)
+- [API reference](https://api-docs.crexi.com/)
+- [Pricing](https://www.crexi.com/broker-plans)
+- [Sign up](https://www.crexi.com/signup)
+- [Support](https://learn.crexi.com/)
+- [Blog](https://www.crexi.com/blog/)
+- [Terms of service](https://www.crexi.com/msa/)
+- [Privacy policy](https://www.crexi.com/privacy)
+- [GitHub](https://github.com/crexi-dev)
+- [Status](https://status.crexi.com/)
+
+## API Evangelist rating
+
+**Kin Score 34.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 57.1 |
+| Access clarity | 44.7 |
+
+**Agent readiness 6.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/crexi/](https://apis.io/providers/crexi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CREXi: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/crexi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
